@@ -12,7 +12,14 @@
   "pluginOptions": {},
   "attributes": {
     "logo": {
-      "type": "string"
+      "type": "component",
+      "component": "elements.logo",
+      "repeatable": false
+    },
+    "navLinks": {
+      "type": "component",
+      "component": "elements.nav-link",
+      "repeatable": true
     }
   }
 }

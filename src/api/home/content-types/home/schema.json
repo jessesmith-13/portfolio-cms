@@ -13,6 +13,16 @@
   "attributes": {
     "Heading": {
       "type": "string"
+    },
+    "blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "blocks.about-section",
+        "blocks.contact-section",
+        "blocks.technologies-section",
+        "blocks.projects-section",
+        "blocks.hero-section"
+      ]
     }
   }
 }

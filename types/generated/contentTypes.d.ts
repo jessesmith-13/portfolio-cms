@@ -668,7 +668,8 @@ export interface ApiHeaderHeader extends Struct.SingleTypeSchema {
       'api::header.header'
     > &
       Schema.Attribute.Private;
-    logo: Schema.Attribute.String;
+    logo: Schema.Attribute.Component<'elements.logo', false>;
+    navLinks: Schema.Attribute.Component<'elements.nav-link', true>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -687,6 +688,15 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    blocks: Schema.Attribute.DynamicZone<
+      [
+        'blocks.about-section',
+        'blocks.contact-section',
+        'blocks.technologies-section',
+        'blocks.projects-section',
+        'blocks.hero-section',
+      ]
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -704,7 +714,7 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
 export interface ApiProjectProject extends Struct.CollectionTypeSchema {
   collectionName: 'projects';
   info: {
-    displayName: 'Project';
+    displayName: 'Projects';
     pluralName: 'projects';
     singularName: 'project';
   };
@@ -732,7 +742,7 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
 export interface ApiTechnologyTechnology extends Struct.CollectionTypeSchema {
   collectionName: 'technologies';
   info: {
-    displayName: 'Technology';
+    displayName: 'Technologies';
     pluralName: 'technologies';
     singularName: 'technology';
   };
