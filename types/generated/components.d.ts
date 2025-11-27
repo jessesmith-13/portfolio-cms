@@ -5,7 +5,10 @@ export interface BlocksAboutSection extends Struct.ComponentSchema {
   info: {
     displayName: 'About Section';
   };
-  attributes: {};
+  attributes: {
+    aboutText: Schema.Attribute.Text;
+    profileImage: Schema.Attribute.Media<'images' | 'files'>;
+  };
 }
 
 export interface BlocksContactSection extends Struct.ComponentSchema {
@@ -23,7 +26,7 @@ export interface BlocksHeroSection extends Struct.ComponentSchema {
   };
   attributes: {
     heading: Schema.Attribute.String;
-    subtext: Schema.Attribute.Text;
+    subtextWords: Schema.Attribute.Component<'elements.subtext', true>;
   };
 }
 
@@ -32,13 +35,31 @@ export interface BlocksProjectsSection extends Struct.ComponentSchema {
   info: {
     displayName: 'Projects Section';
   };
-  attributes: {};
+  attributes: {
+    heading: Schema.Attribute.String;
+    projectCards: Schema.Attribute.Component<'elements.project-card', true>;
+  };
 }
 
 export interface BlocksTechnologiesSection extends Struct.ComponentSchema {
   collectionName: 'components_blocks_technologies_sections';
   info: {
     displayName: 'Technologies Section';
+  };
+  attributes: {
+    heading: Schema.Attribute.String;
+    subheading: Schema.Attribute.String;
+    technologyCards: Schema.Attribute.Component<
+      'elements.technology-card',
+      true
+    >;
+  };
+}
+
+export interface ElementsContactForm extends Struct.ComponentSchema {
+  collectionName: 'components_elements_contact_forms';
+  info: {
+    displayName: 'contactForm';
   };
   attributes: {};
 }
@@ -74,6 +95,64 @@ export interface ElementsNavLink extends Struct.ComponentSchema {
     href: Schema.Attribute.String;
     label: Schema.Attribute.String;
     order: Schema.Attribute.Integer;
+  };
+}
+
+export interface ElementsProjectCard extends Struct.ComponentSchema {
+  collectionName: 'components_elements_project_cards';
+  info: {
+    displayName: 'projectCard';
+  };
+  attributes: {
+    githubLink: Schema.Attribute.Component<'elements.project-link', false>;
+    projectDescription: Schema.Attribute.Text;
+    projectImage: Schema.Attribute.Media<'files' | 'images'>;
+    projectLink: Schema.Attribute.Component<'elements.project-link', false>;
+    projectName: Schema.Attribute.String;
+    technologies: Schema.Attribute.Component<'elements.technology', true>;
+  };
+}
+
+export interface ElementsProjectLink extends Struct.ComponentSchema {
+  collectionName: 'components_elements_project_links';
+  info: {
+    displayName: 'projectLink';
+  };
+  attributes: {
+    href: Schema.Attribute.String;
+    icon: Schema.Attribute.String;
+    text: Schema.Attribute.String;
+  };
+}
+
+export interface ElementsSubtext extends Struct.ComponentSchema {
+  collectionName: 'components_elements_subtexts';
+  info: {
+    displayName: 'subtext';
+  };
+  attributes: {
+    text: Schema.Attribute.String;
+  };
+}
+
+export interface ElementsTechnology extends Struct.ComponentSchema {
+  collectionName: 'components_elements_technologies';
+  info: {
+    displayName: 'technology';
+  };
+  attributes: {
+    text: Schema.Attribute.String;
+  };
+}
+
+export interface ElementsTechnologyCard extends Struct.ComponentSchema {
+  collectionName: 'components_elements_technology_cards';
+  info: {
+    displayName: 'technologyCard';
+  };
+  attributes: {
+    technologies: Schema.Attribute.Component<'elements.technology', true>;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -145,9 +224,15 @@ declare module '@strapi/strapi' {
       'blocks.hero-section': BlocksHeroSection;
       'blocks.projects-section': BlocksProjectsSection;
       'blocks.technologies-section': BlocksTechnologiesSection;
+      'elements.contact-form': ElementsContactForm;
       'elements.link': ElementsLink;
       'elements.logo': ElementsLogo;
       'elements.nav-link': ElementsNavLink;
+      'elements.project-card': ElementsProjectCard;
+      'elements.project-link': ElementsProjectLink;
+      'elements.subtext': ElementsSubtext;
+      'elements.technology': ElementsTechnology;
+      'elements.technology-card': ElementsTechnologyCard;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;

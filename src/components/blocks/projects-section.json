@@ -4,6 +4,15 @@
     "displayName": "Projects Section"
   },
   "options": {},
-  "attributes": {},
+  "attributes": {
+    "projectCards": {
+      "type": "component",
+      "component": "elements.project-card",
+      "repeatable": true
+    },
+    "heading": {
+      "type": "string"
+    }
+  },
   "config": {}
 }

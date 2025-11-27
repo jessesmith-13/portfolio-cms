@@ -8,8 +8,10 @@
     "heading": {
       "type": "string"
     },
-    "subtext": {
-      "type": "text"
+    "subtextWords": {
+      "type": "component",
+      "component": "elements.subtext",
+      "repeatable": true
     }
   },
   "config": {}

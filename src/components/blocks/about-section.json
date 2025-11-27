@@ -4,6 +4,18 @@
     "displayName": "About Section"
   },
   "options": {},
-  "attributes": {},
+  "attributes": {
+    "aboutText": {
+      "type": "text"
+    },
+    "profileImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    }
+  },
   "config": {}
 }

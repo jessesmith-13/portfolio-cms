@@ -4,6 +4,18 @@
     "displayName": "Technologies Section"
   },
   "options": {},
-  "attributes": {},
+  "attributes": {
+    "technologyCards": {
+      "type": "component",
+      "component": "elements.technology-card",
+      "repeatable": true
+    },
+    "heading": {
+      "type": "string"
+    },
+    "subheading": {
+      "type": "string"
+    }
+  },
   "config": {}
 }
